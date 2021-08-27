@@ -1,0 +1,45 @@
+{
+    "questions": [ 
+    {
+        "id": 1,
+        "question": "Czy lider grupy próbuje Cię oddzielić lub oddalić od rodziny?"
+    },
+    {
+        "id": 2,
+        "question": "Czy lider grupy uważa się za osobę, która zawsze ma rację?"
+    },
+    {
+        "id": 3,
+        "question": "Czy lider domaga się posłuszeństwa od grupy lub od jej części (np. od asystentów)?"
+    },
+    {
+        "id": 4,
+        "question": "Czy lider grupy wpływa na Twoje życie lub na życie innych uczestników w znaczący sposób, na przykład mówiąc, z kim należy się związać lub rozstać, z kim uprawiać seks; nalegając, by porzucić pracę lub ją zmienić?"
+    },
+    {
+        "id": 5,
+        "question": "Czy lider grupy zapewnia, że wykonując pewne praktyki zaczniesz więcej zarabiać, a jednocześnie widzisz, że od dłuższego czasu coraz większa część Twoich zarobków trafia do lidera?"
+    },
+    {
+        "id": 6,
+        "question": "Czy lider pomimo trudności finansowych Twoich lub innego uczestnika grupy ciągle zachęca do tego, by kontynuować pobieranie od niego płatnych nauk?"
+    },
+    {
+        "id": 7,
+        "question": "Czy grupa wierzy, że jej lider jest jedynym właściwym nauczycielem? Czy panuje w niej przekonanie, że wszyscy spoza tej właśnie grupy są ignorantami, żyją w iluzji lub w zaślepieniu?"
+    },
+    {
+        "id": 8,
+        "question": "Czy uczestnicy grupy z góry rezygnują z przyjmowania nauk od wszystkich innych nauczycieli (bez jakiejkolwiek wiedzy na ich temat), twierdząc, że obecna grupa na pewno jest najlepsza?"
+    },
+    {
+        "id": 9,
+        "question": "Czy lider grupy rości sobie prawo do krytykowania wszystkich i oceniania ich postępowania?"
+    },
+    {
+        "id": 10,
+        "question": "Czy Twoja rodzina zwraca Ci uwagę, że z grupą, w której uczestniczysz jest coś nie tak? Czy Twoi bliscy dostrzegają, że myślami jesteś bardziej tam niż w domu? Czy oprócz życia rodzinnego zaniedbujesz także swoją pracę lub naukę?"
+    }
+
+    ]
+}
