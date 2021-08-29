@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import QuizSummary from "./QuizSummary";
 
-function Quiz() {
+function Quiz({name, group}) {
   const [displaySingleQuestion, setDisplaySingleQuestion] = useState([""]);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [clickCounter, setClickCounter] = useState(0);
   const [enable, setEnable] = useState(false);
+  const nameSummary = name;
+  const groupSummary = group;
 
   useEffect(() => {
     fetch("./database/questions.json")
@@ -14,10 +16,6 @@ function Quiz() {
       .then((data) => setDisplaySingleQuestion(data.questions))
       .catch((err) => console.log(err));
   }, []);
-
-  useEffect(() => {
-    setCurrentQuestion(displaySingleQuestion[questionNumber]);
-  }, [displaySingleQuestion]);
 
 const onClickHandlerYes = () => {
     setQuestionNumber((currentNumber) => currentNumber + 1);
@@ -38,7 +36,11 @@ console.log(clickCounter);
   return (
     <>
         {!enable && <div>
-          <p>QUESTION</p>
+          <div>
+            <h3>{name}</h3>
+            <h3>{group}</h3>            
+          </div>
+          <h2>QUESTION</h2>
           <div style={{ backgroundColor: "red" }}>
             <p>{displayQuestion(questionNumber)}</p>
           </div>
@@ -55,7 +57,7 @@ console.log(clickCounter);
             Nie
           </button>
         </div> }
-        {enable && <QuizSummary counter={clickCounter}/>}
+        {enable && <QuizSummary counter={clickCounter} nameSummary={nameSummary} groupSummary={groupSummary} />}
     </>
   );
 }

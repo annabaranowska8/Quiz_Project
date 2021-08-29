@@ -1,7 +1,7 @@
 import React from "react";
 // { useState, useEffect }
 
-function QuizSummary({counter}) {
+function QuizSummary({nameSummary, groupSummary, counter}) {
 
 const conditionsOfYesAmount = (counter) => {
     if (counter === 0) {
@@ -13,13 +13,17 @@ const conditionsOfYesAmount = (counter) => {
     } else if (counter < 8) {
         return "Ta grupa nie wygląda na bezpieczną."
     } else {
-        return "W grupie są zachowania jak w sekcie."
+        return "W grupie są zachowania jak w sekcie! Uwazaj!"
     }
 };
 
     return (
         <>
         <div>
+            <div>
+                <h3>{nameSummary}</h3>
+                <h3>{groupSummary}</h3>
+            </div>
             <p>Liczba Twoich odpowiedzi na "TAK" to: {counter}.</p>
             <p>{conditionsOfYesAmount(counter)}</p>
         </div>
