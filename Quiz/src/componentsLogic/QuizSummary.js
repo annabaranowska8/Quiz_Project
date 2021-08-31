@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
+import HeaderWithLSData from "../componentsStyle/HeaderWithLSData";
 
-function QuizSummary({nameSummary, groupSummary, counter}) {
+function QuizSummary({counter}) {
+    const [enable, setEnable] = useState(false);
     const conditionsOfYesAmount = (counter) => {
-        if (counter == null) {
+        if (counter == 0) {
             return "Jesteś bezpieczny."
         } else if (counter < 3) {
             return "Bądź czujny."
@@ -16,30 +18,24 @@ function QuizSummary({nameSummary, groupSummary, counter}) {
     };
     {if (counter > 0) {
         return <>
-            <div>
-                <div>
-                    <h3>{nameSummary}</h3>
-                    <h3>{groupSummary}</h3>
-                </div>
+            {!enable && <HeaderWithLSData />}
+            {!enable && <div>
                 <p>Liczba Twoich odpowiedzi na "TAK" to: {counter}.</p>
                 <p>{conditionsOfYesAmount(counter)}</p>
                 <p>Pamiętaj aby powtozyc quiz po pewnym czasie. Zapisz w swoim kalendarzu, kiedy chcesz to zrobić (pamiętaj o zapisaniu linka do strony).</p>
                 <p>Pełna wersja quizu jest dostepna w ksiązce pt. "Sekrety Rozwoju Osobistego"</p>
                 <p>Chcę mieć dostęp do pełnej wersji! - przedź do sklepu.</p>
-            </div>   
+            </div>}   
             </>
     } else {
         return <>
-            <div>
-                <div>
-                    <h3>{nameSummary}</h3>
-                    <h3>{groupSummary}</h3>
-                </div>
+            {!enable && <HeaderWithLSData />}
+            {!enable && <div>
                 <p>Jest GIT.</p>
                 <p>Pamiętaj aby powtozyc quiz po pewnym czasie. Zapisz w swoim kalendarzu, kiedy chcesz to zrobić (pamiętaj o zapisaniu linka do strony).</p>
                 <p>Pełna wersja quizu jest dostepna w ksiązce pt. "Sekrety Rozwoju Osobistego"</p>
                 <p>Chcę mieć dostęp do pełnej wersji! - przedź do sklepu.</p>
-            </div>   
+            </div>}
             </>
         }  
     }

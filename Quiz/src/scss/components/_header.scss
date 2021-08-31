@@ -1,0 +1,34 @@
+.header {
+    width: 100vw;
+    height: 100px;
+    background-color: #7a3760;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+        width: 1320px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        align-items: center;
+    }
+
+    h1 {
+        color: $color-primary;
+        font-family: 'Nunito', sans-serif;
+        font-size: 27px;
+        font-weight: 800;
+        margin: 0;
+        text-align: center;
+    }
+
+    .personalData {
+        color: $color-primary;
+        font-family: 'Nunito', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        display: flex;
+    }
+}

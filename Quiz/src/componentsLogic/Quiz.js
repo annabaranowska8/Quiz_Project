@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
+import NameLocalStorage from "./NameLocalStorage";
+import GroupLocalStorage from "./GroupLocalStorage";
 import CounterkLocalStorage from "./CounterkLocalStorage";
 import QuizSummary from "./QuizSummary";
+import HeaderWithLSData from "../componentsStyle/HeaderWithLSData";
 
-function Quiz({name, group}) {
+function Quiz() {
+  const [name, setName] = NameLocalStorage("nameInLocalStorage");
+  const [group, setGroup] = GroupLocalStorage("groupInLocalStorage");
   const [displaySingleQuestion, setDisplaySingleQuestion] = useState([""]);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [clickCounter, setClickCounter] = useState(0);
   const [enable, setEnable] = useState(false);
-  const nameSummary = name;
-  const groupSummary = group;
 
   useEffect(() => {
     fetch("./database/questions.json")
@@ -43,6 +46,7 @@ const [counter, setCounter] = CounterkLocalStorage(
 
   return (
     <>
+      {!enable && <HeaderWithLSData/>}
         {!enable && <div>
           <div>
             <h3>{name}</h3>
@@ -65,7 +69,7 @@ const [counter, setCounter] = CounterkLocalStorage(
             Nie
           </button>
         </div> }
-        {enable && <QuizSummary counter={counter} nameSummary={nameSummary} groupSummary={groupSummary} />}
+        {enable && <QuizSummary counter={counter} nameSummary={name} groupSummary={group} />}
     </>
   );
 }

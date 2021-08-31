@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import NameLocalStorage from "./NameLocalStorage";
 import GroupLocalStorage from "./GroupLocalStorage";
+import Header from "../componentsStyle/Header"
 import Quiz from "./Quiz";
 
 
@@ -28,6 +29,7 @@ const FirstEntry = () => {
 
 
     return <> 
+    {!enable && <Header />}
       <form>
       {!enable && <div>
         <h2>Jak masz na imię?</h2>

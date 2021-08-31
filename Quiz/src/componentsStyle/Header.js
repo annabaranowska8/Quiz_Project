@@ -5,12 +5,10 @@ const Header = () => {
     const group = localStorage.getItem("GroupLocalStorage");
     return <>
     <div className="header">
-        <div className="logoHeader">
-            <h1>Sekrety Rozwoju Osobistego</h1>
-        </div>
-        <div className="personalData">
-            <h2>Witaj {name}!</h2>
-            <h2>Grupa: {group}</h2>
+        <div className="container">
+            <div className="logoHeader">
+                <h1>Sekrety Rozwoju<br/> Osobistego</h1>
+            </div>
         </div>
     </div>
     </>

@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import NameLocalStorage from "./NameLocalStorage";
 import GroupLocalStorage from "./GroupLocalStorage";
+import Header from "../componentsStyle/Header";
+import HeaderWithLSData from "../componentsStyle/HeaderWithLSData";
 
 const NextEntry = () => {
     const [enable, setEnable] = useState(false);
@@ -27,6 +29,7 @@ const NextEntry = () => {
       }
 
     return <>
+    {!enable && <HeaderWithLSData />}
     <form>
       {!enable && <div>        
         <h2>Witaj {name}!</h2>
@@ -35,6 +38,7 @@ const NextEntry = () => {
       </div>
       }   
       {!enable && <button type="submit" onClick={onStartNewQuiz} >Pomyśl o grupie, którą chcesz zbadać...</button>}
+      {enable && <Header />}
       {enable && <button type="submit" onClick={handleSubmit}>Jesteś gotowy/a? Zaczynajmy</button>}
       </form> 
       </>
