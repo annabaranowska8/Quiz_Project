@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from "react";
 import QuizSummary from "./QuizSummary";
+import QuizWelcome from "./QuizWelcome";
+
+const CounterkLocalStorage = clickLS => {
+  const [counter, setCounter] = useState(
+      localStorage.getItem(clickLS)
+  );
+  useEffect(() => {
+      localStorage.setItem(clickLS, counter);
+  }, [counter])
+  return [counter, setCounter];
+}
 
 function Quiz({name, group}) {
   const [displaySingleQuestion, setDisplaySingleQuestion] = useState([""]);
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState("");
+  // const [currentQuestion, setCurrentQuestion] = useState("");
   const [clickCounter, setClickCounter] = useState(0);
   const [enable, setEnable] = useState(false);
   const nameSummary = name;
@@ -17,13 +28,17 @@ function Quiz({name, group}) {
       .catch((err) => console.log(err));
   }, []);
 
-const onClickHandlerYes = () => {
+const onClickHandlerYes = (e) => {
+    e.preventDefault();
     setQuestionNumber((currentNumber) => currentNumber + 1);
     setClickCounter((currentClick) => currentClick + 1);
     questionNumber === 9 && setEnable(true);
+    setCounter(clickCounter + 1);
+    // parseInt(setCounter((currentNumber) => currentNumber + 1));
 }
 
-const onClickHandlerNo = () => {
+const onClickHandlerNo = (e) => {
+    e.preventDefault();
     setQuestionNumber((currentNumber) => currentNumber + 1);
     questionNumber === 9 && setEnable(true);
 }
@@ -32,7 +47,13 @@ const displayQuestion = (questionNumber) => {
     const question = displaySingleQuestion[questionNumber].question;
     return `${number}. ${question}`;
 }
-console.log(clickCounter);
+
+const [counter, setCounter] = CounterkLocalStorage(
+  "clickCounterInLocalStorage"
+);
+// const onChangeCounter = (e) => setCounter(e.target.value)
+
+console.log(typeof(clickCounter));
   return (
     <>
         {!enable && <div>
@@ -57,7 +78,8 @@ console.log(clickCounter);
             Nie
           </button>
         </div> }
-        {enable && <QuizSummary counter={clickCounter} nameSummary={nameSummary} groupSummary={groupSummary} />}
+        {enable && <QuizSummary counter={counter} nameSummary={nameSummary} groupSummary={groupSummary} />}
+        {/* {enable && <QuizWelcome score={CounterkLocalStorage(counter)} />} */}
     </>
   );
 }

@@ -1,8 +1,6 @@
 import React from "react";
-// { useState, useEffect }
 
 function QuizSummary({nameSummary, groupSummary, counter}) {
-
 const conditionsOfYesAmount = (counter) => {
     if (counter === 0) {
         return "Jesteś bezpieczny."
@@ -16,7 +14,9 @@ const conditionsOfYesAmount = (counter) => {
         return "W grupie są zachowania jak w sekcie! Uwazaj!"
     }
 };
-
+// const [enable, setEnable] = useState(false);
+// const score = counter;
+console.log("to jest pusty counter: ", counter);
     return (
         <>
         <div>
@@ -27,6 +27,7 @@ const conditionsOfYesAmount = (counter) => {
             <p>Liczba Twoich odpowiedzi na "TAK" to: {counter}.</p>
             <p>{conditionsOfYesAmount(counter)}</p>
         </div>
+        {/* {enable && <QuizWelcome score={counter} />} */}
 
             
         </>
