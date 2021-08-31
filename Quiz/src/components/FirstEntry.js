@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import NameLocalStorage from "./QuizLocalStorage";
-import GroupLocalStorage from "./QuizLocalStorage";
+import NameLocalStorage from "./NameLocalStorage";
+import GroupLocalStorage from "./GroupLocalStorage";
 import Quiz from "./Quiz";
 
 

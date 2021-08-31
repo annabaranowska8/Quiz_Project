@@ -1,21 +1,24 @@
 import React, {useState} from "react";
+import NameLocalStorage from "./NameLocalStorage";
+import GroupLocalStorage from "./GroupLocalStorage";
 
 const NextEntry = () => {
     const [enable, setEnable] = useState(false);
-    const name = localStorage.getItem("nameInLocalStorage")
-    const group = localStorage.getItem("groupInLocalStorage")
-    const score = localStorage.getItem("clickCounterInLocalStorage");
-    const [enable, setEnable] = useState(false);
+    const [name, setName] = NameLocalStorage("nameInLocalStorage");
+    const [group, setGroup] = GroupLocalStorage("groupInLocalStorage");
+    const [enteredName, setEnteredName] = useState("");
+    const [enteredGroup, setEnteredGroup] = useState("");
     const [startNewQuizNow, setStartNewQuizNow] = useState(false);
+    const score = localStorage.getItem("clickCounterInLocalStorage");
 
     const onStartNewQuiz = (e) => {
         e.preventDefault()
         console.log('działa! button Zacznij..');
         setEnable(true)
         setStartNewQuizNow(true)
-        localStorage.setItem("nameInLocalStorage", null);
-        localStorage.setItem("groupInLocalStorage", null);
-        localStorage.setItem("clickCounterInLocalStorage", null);
+        localStorage.setItem("nameInLocalStorage", "");
+        localStorage.setItem("groupInLocalStorage", "");
+        localStorage.setItem("clickCounterInLocalStorage", "");
       };
     const handleSubmit = () => {
         setEnable(true);

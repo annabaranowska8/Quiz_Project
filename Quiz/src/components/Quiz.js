@@ -1,21 +1,10 @@
 import React, { useState, useEffect } from "react";
+import CounterkLocalStorage from "./CounterkLocalStorage";
 import QuizSummary from "./QuizSummary";
-import QuizWelcome from "./QuizWelcome";
-
-const CounterkLocalStorage = clickLS => {
-  const [counter, setCounter] = useState(
-      localStorage.getItem(clickLS)
-  );
-  useEffect(() => {
-      localStorage.setItem(clickLS, counter);
-  }, [counter])
-  return [counter, setCounter];
-}
 
 function Quiz({name, group}) {
   const [displaySingleQuestion, setDisplaySingleQuestion] = useState([""]);
   const [questionNumber, setQuestionNumber] = useState(0);
-  // const [currentQuestion, setCurrentQuestion] = useState("");
   const [clickCounter, setClickCounter] = useState(0);
   const [enable, setEnable] = useState(false);
   const nameSummary = name;
@@ -34,12 +23,12 @@ const onClickHandlerYes = (e) => {
     setClickCounter((currentClick) => currentClick + 1);
     questionNumber === 9 && setEnable(true);
     setCounter(clickCounter + 1);
-    // parseInt(setCounter((currentNumber) => currentNumber + 1));
 }
 
 const onClickHandlerNo = (e) => {
     e.preventDefault();
     setQuestionNumber((currentNumber) => currentNumber + 1);
+    setClickCounter((currentClick) => currentClick + 1);
     questionNumber === 9 && setEnable(true);
 }
 const displayQuestion = (questionNumber) => {
@@ -51,9 +40,7 @@ const displayQuestion = (questionNumber) => {
 const [counter, setCounter] = CounterkLocalStorage(
   "clickCounterInLocalStorage"
 );
-// const onChangeCounter = (e) => setCounter(e.target.value)
 
-console.log(typeof(clickCounter));
   return (
     <>
         {!enable && <div>
@@ -79,7 +66,6 @@ console.log(typeof(clickCounter));
           </button>
         </div> }
         {enable && <QuizSummary counter={counter} nameSummary={nameSummary} groupSummary={groupSummary} />}
-        {/* {enable && <QuizWelcome score={CounterkLocalStorage(counter)} />} */}
     </>
   );
 }
