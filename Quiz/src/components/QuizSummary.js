@@ -26,6 +26,9 @@ console.log("to jest pusty counter: ", counter);
             </div>
             <p>Liczba Twoich odpowiedzi na "TAK" to: {counter}.</p>
             <p>{conditionsOfYesAmount(counter)}</p>
+            <p>Pamiętaj aby powtozyc quiz po pewnym czasie. Zapisz w swoim kalendarzu, kiedy chcesz to zrobić (pamiętaj o zapisaniu linka do strony).</p>
+            <p>Pełna wersja quizu jest dostepna w ksiązce pt. "Sekrety Rozwoju Osobistego"</p>
+            <p>Chcę mieć dostęp do pełnej wersji! - przedź do sklepu.</p>
         </div>
         {/* {enable && <QuizWelcome score={counter} />} */}
 
