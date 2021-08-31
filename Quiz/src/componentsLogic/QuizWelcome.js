@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import FirstEntry from "./FirstEntry";
 import NextEntry from "./NextEntry";
+import Header from "../componentsStyle/Header"
 import "../scss/main.scss";
 
 function QuizWelcome() {
 
     {if (!localStorage.getItem("nameInLocalStorage", "groupInLocalStorage")) { 
-      return <FirstEntry />
+      return <>
+      <Header />
+      <FirstEntry />
+      </>
     } else {
-      return <NextEntry />
+      return <>
+      <Header />
+      <NextEntry />
+      </>
     }
   }
 }

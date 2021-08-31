@@ -1,5 +1,5 @@
 import React from "react";
-import QuizWelcome from "./components/QuizWelcome";
+import QuizWelcome from "./componentsLogic/QuizWelcome";
 import './scss/main.scss';
 
 function App() {
