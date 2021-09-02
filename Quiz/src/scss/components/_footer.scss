@@ -1,0 +1,25 @@
+.footer {
+    height: 90px;
+    background-color: $color-footer;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0px 1px 20px $color-grey-shadow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        width: 1320px;
+        display: flex;
+        justify-content: center;
+
+        .footer__info p {
+            color: $color-primary;
+
+            a {
+                text-decoration: none;
+                color: $color-primary;
+            }
+        }
+    }
+
+}

@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import NameLocalStorage from "./NameLocalStorage";
 import GroupLocalStorage from "./GroupLocalStorage";
-import Header from "../componentsStyle/Header";
 
 const NextEntry = () => {
     const [enable, setEnable] = useState(false);
@@ -26,21 +25,49 @@ const NextEntry = () => {
         setName(enteredName);
         setGroup(enteredGroup);
       }
-
+    const scoreZero = () => {
+      if (score == (""))
+      return 0 
+    }
+    
+    {if (!localStorage.getItem("clickCounterInLocalStorage")) {
     return <>
-    {/* {!enable && <Header />} */}
     <form>
-      {!enable && <div>        
-        <h2>Witaj {name}!</h2>
-        <p>Ostatio dla grupy {group} Twoim wynikiem było {score}/10 odpowiedzi na tak.<br/>
-        Chcesz zrobić quiz jeszcze raz? (Twoje poprzednie wyniki zostaną skasowane.)</p>
-      </div>
-      }   
-      {!enable && <button type="submit" onClick={onStartNewQuiz} >Pomyśl o grupie, którą chcesz zbadać...</button>}
-      {/* {enable && <Header />} */}
-      {enable && <button type="submit" onClick={handleSubmit}>Jesteś gotowy/a? Zaczynajmy</button>}
+      <div className="quiz">
+          <div className="container">
+            <div className="quiz__box">
+              {!enable && <>
+                <h2>Witaj {name}!</h2>
+                <p>Poprzednio dla grupy {group} Twoim wynikiem było 0/10 odpowiedzi na tak.<br/>
+                Chcesz zrobić quiz jeszcze raz? <br/>(Twoje poprzednie wyniki zostaną skasowane.)</p>
+                </>}   
+              {!enable && <button className="btn" type="submit" onClick={onStartNewQuiz} >Pomyśl o grupie, którą chcesz zbadać...</button>}
+              {enable && <button className="btn" type="submit" onClick={handleSubmit}>Jesteś gotowy/a? Zaczynajmy</button>}
+            </div>
+          </div>
+        </div>
       </form> 
-      </>
+    </>
+  } else { 
+    return <>
+    <form>
+      <div className="quiz">
+          <div className="container">
+            <div className="quiz__box">
+              {!enable && <>
+                <h2>Witaj {name}!</h2>
+                <p>Poprzednio dla grupy {group} Twoim wynikiem było {score}/10 odpowiedzi na tak.<br/>
+                Chcesz zrobić quiz jeszcze raz? <br/>(Twoje poprzednie wyniki zostaną skasowane.)</p>
+                </>}   
+              {!enable && <button className="btn" type="submit" onClick={onStartNewQuiz} >Pomyśl o grupie, którą chcesz zbadać...</button>}
+              {enable && <button className="btn" type="submit" onClick={handleSubmit}>Jesteś gotowy/a? Zaczynajmy</button>}
+            </div>
+          </div>
+        </div>
+      </form> 
+    </>
+  }
+}
 }
 
 export default NextEntry;

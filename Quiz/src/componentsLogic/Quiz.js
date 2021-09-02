@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import CounterkLocalStorage from "./CounterkLocalStorage";
 import QuizSummary from "./QuizSummary";
 
-function Quiz() {
+function Quiz({name, group}) {
   const [displaySingleQuestion, setDisplaySingleQuestion] = useState([""]);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [clickCounter, setClickCounter] = useState(0);
   const [enable, setEnable] = useState(false);
+
+  console.log(clickCounter);
 
   useEffect(() => {
     fetch("./database/questions.json")
@@ -15,7 +17,7 @@ function Quiz() {
       .catch((err) => console.log(err));
   }, []);
 
-const onClickHandlerYes = (e) => {
+  const onClickHandlerYes = (e) => {
     e.preventDefault();
     setQuestionNumber((currentNumber) => currentNumber + 1);
     setClickCounter((currentClick) => currentClick + 1);
@@ -26,7 +28,7 @@ const onClickHandlerYes = (e) => {
 const onClickHandlerNo = (e) => {
     e.preventDefault();
     setQuestionNumber((currentNumber) => currentNumber + 1);
-    setClickCounter((currentClick) => currentClick + 1);
+    // setClickCounter((currentClick) => currentClick + 1);
     questionNumber === 9 && setEnable(true);
 }
 const displayQuestion = (questionNumber) => {
@@ -41,19 +43,20 @@ const [counter, setCounter] = CounterkLocalStorage(
 
   return (
     <>
-      {/* {!enable  <Header/>} */}
-        {!enable && <div>
-          <h2>QUESTION</h2>
-          <div style={{ backgroundColor: "red" }}>
+        {!enable && <div className="quiz__content">
+          <div className="quiz__content__header">
+          <h3>imię: <span>{name}</span>,  grupa: <span>{group}</span></h3>            
+          </div>
+          <div className="quiz--questionNumber">
             <p>{displayQuestion(questionNumber)}</p>
           </div>
-          <button
+          <button className="btn"
             id="yesButton"
             onClick={onClickHandlerYes}
           >
             Tak
           </button>
-          <button
+          <button className="btn"
             id="noButton"
             onClick={onClickHandlerNo}
           >

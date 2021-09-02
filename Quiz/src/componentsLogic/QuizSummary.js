@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-// import Header from "../componentsStyle/Header";
 
 function QuizSummary({counter}) {
     const [enable, setEnable] = useState(false);
@@ -16,25 +15,32 @@ function QuizSummary({counter}) {
             return "W grupie są zachowania jak w sekcie! Uwazaj!"
         }
     };
+
+const handleNewStart = () => {
+    window.location.reload(false);
+}
+
     {if (counter > 0) {
         return <>
-            {/* {!enable && <Header />} */}
-            {!enable && <div>
-                <p>Liczba Twoich odpowiedzi na "TAK" to: {counter}.</p>
+            {!enable && <div className="quiz__summary quiz__content">
+                <h2>Liczba Twoich odpowiedzi na "TAK" to: {counter}.</h2>
                 <p>{conditionsOfYesAmount(counter)}</p>
-                <p>Pamiętaj aby powtozyc quiz po pewnym czasie. Zapisz w swoim kalendarzu, kiedy chcesz to zrobić (pamiętaj o zapisaniu linka do strony).</p>
-                <p>Pełna wersja quizu jest dostepna w ksiązce pt. "Sekrety Rozwoju Osobistego"</p>
-                <p>Chcę mieć dostęp do pełnej wersji! - przedź do sklepu.</p>
+                <p>Chcesz powtórzyć quiz?</p>
+                <button  className="btn" onClick={handleNewStart}>Powtórz quiz</button>
+                <p>Pełna wersja quizu jest dostepna w książce pt. "Sekrety Rozwoju Osobistego".</p>
+                <p>Chcesz uzyskać dostęp do pełnej wersji?</p>
+                <a className="btn" href="https://www.sekretyrozwojuosobistego.pl/">Kup książkę</a>
             </div>}   
             </>
     } else {
         return <>
             {/* {!enable && <Header />} */}
-            {!enable && <div>
-                <p>Jest GIT.</p>
-                <p>Pamiętaj aby powtozyc quiz po pewnym czasie. Zapisz w swoim kalendarzu, kiedy chcesz to zrobić (pamiętaj o zapisaniu linka do strony).</p>
-                <p>Pełna wersja quizu jest dostepna w ksiązce pt. "Sekrety Rozwoju Osobistego"</p>
-                <p>Chcę mieć dostęp do pełnej wersji! - przedź do sklepu.</p>
+            {!enable && <div className="quiz__summary quiz__content">
+                <h2>Twoja grupa wygląda na bezpieczną. Gratulacje!</h2>
+                <p>Jeśli chcesz powtórzyć quiz dla innej grupy kliknij tutaj:</p>
+                <button  className="btn" onClick={handleNewStart}>Powtórz quiz</button>
+                <p>Pełna wersja quizu jest dostepna w książce pt. <span>"Sekrety Rozwoju Osobistego"</span>.<br/>Chcesz uzyskać dostęp do pełnej wersji?</p>
+                <a className="btn" href="https://www.sekretyrozwojuosobistego.pl/">Kup książkę</a>
             </div>}
             </>
         }  

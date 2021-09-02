@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 8px 0 rgb(160, 160, 160);
 
     .container {
         width: 1320px;
@@ -15,17 +16,27 @@
         align-items: center;
     }
 
-    h1 {
-        color: $color-primary;
-        font-family: 'Nunito', sans-serif;
-        font-size: 27px;
-        font-weight: 800;
-        margin: 0;
+    // a {
+    //     font-family: 'Nunito', sans-serif;
+    //     text-decoration: none;
+    //     color: $color-primary;
+    
+    .header__logo {
         text-align: center;
+        
+        h1 a {
+            font-family: "Nunito", sans-serif;
+            color: $color-primary;
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0;
+            text-decoration: none;
+        }
     }
+    
 
     .personalData {
-        color: $color-primary;
+        color: $color-lighter-blue;
         font-family: 'Nunito', sans-serif;
         font-size: 20px;
         font-weight: 400;

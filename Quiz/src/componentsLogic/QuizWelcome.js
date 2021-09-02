@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import FirstEntry from "./FirstEntry";
 import NextEntry from "./NextEntry";
 import "../scss/main.scss";
 
-function QuizWelcome() {
+function QuizWelcome({}) {
+  // const [updatetowanyState, setUpdatetowanyState] = useState("");
 
-    {if (!localStorage.getItem("nameInLocalStorage", "groupInLocalStorage")) { 
+  
+  // useEffect(() => {
+  //   setDziwnyState(updatetowanyState)
+  // }, [updatetowanyState])
+
+
+      {if (!localStorage.getItem("nameInLocalStorage", "groupInLocalStorage")) { 
       return <>
-      <FirstEntry />
+      <FirstEntry/>
       </>
     } else {
       return <>

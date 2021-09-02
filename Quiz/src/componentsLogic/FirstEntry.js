@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import NameLocalStorage from "./NameLocalStorage";
 import GroupLocalStorage from "./GroupLocalStorage";
-import Header from "../componentsStyle/Header"
 import Quiz from "./Quiz";
 
 
-const FirstEntry = () => {
+const FirstEntry = ({setUpdatetowanyState}) => {
     const [enable, setEnable] = useState(false);
     const [name, setName] = NameLocalStorage("nameInLocalStorage");
     const [group, setGroup] = GroupLocalStorage("groupInLocalStorage");
@@ -21,24 +20,37 @@ const FirstEntry = () => {
         e.preventDefault()
         setEnteredGroup(e.target.value)
       }
-      const handleSubmit = () => {
+      const handleSubmit = (e) => {
+        e.preventDefault();
         setEnable(true);
         setName(enteredName);
         setGroup(enteredGroup);
       }
 
 
+
     return <> 
-    {/* {!enable && <Header />} */}
-      <form>
-      {!enable && <div>
-        <h2>Jak masz na imię?</h2>
-        <input value={enteredName} type="text" placeholder="Wpisz imię" onChange={onChangeName}  />
-        <h2>Grupa, którą chcę zbadać, to:</h2>
-        <input value={enteredGroup} type="text" placeholder="Nazwa grupy" onChange={onChangeGroup} />
-      </div> }
+      <form onSubmit={handleSubmit}>
+        <div className="quiz">
+          <div className="container">
+            <div className="quiz__box">
+              {!enable && <>
+              <div className="quiz__box--form">
+                <label>Jak masz na imię?</label>
+                <input value={enteredName} type="text" placeholder="Wpisz imię" onChange={onChangeName}  />        
+              </div>
+              <div className="quiz__box--form">
+                <label>Grupa, którą chcesz zbadać, to:</label>
+                <input value={enteredGroup} type="text" placeholder="Nazwa grupy" onChange={onChangeGroup} />         
+              </div>       
+            </>}        
       {enable && !startNewQuizNow && <Quiz name={name} group={group} />}
-      {!enable && <button type="submit" onClick={handleSubmit}>Przejdź do quizu</button>}
+      {!enable && <div className="quiz__box--form">
+                    <button className="btn" type="submit">Przejdź do quizu</button>
+                  </div>}
+            </div>
+          </div>        
+        </div>
       </form>
       </>
 }
