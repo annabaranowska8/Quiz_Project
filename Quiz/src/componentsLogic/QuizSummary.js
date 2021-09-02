@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import HeaderWithLSData from "../componentsStyle/HeaderWithLSData";
+// import Header from "../componentsStyle/Header";
 
 function QuizSummary({counter}) {
     const [enable, setEnable] = useState(false);
@@ -18,7 +18,7 @@ function QuizSummary({counter}) {
     };
     {if (counter > 0) {
         return <>
-            {!enable && <HeaderWithLSData />}
+            {/* {!enable && <Header />} */}
             {!enable && <div>
                 <p>Liczba Twoich odpowiedzi na "TAK" to: {counter}.</p>
                 <p>{conditionsOfYesAmount(counter)}</p>
@@ -29,7 +29,7 @@ function QuizSummary({counter}) {
             </>
     } else {
         return <>
-            {!enable && <HeaderWithLSData />}
+            {/* {!enable && <Header />} */}
             {!enable && <div>
                 <p>Jest GIT.</p>
                 <p>Pamiętaj aby powtozyc quiz po pewnym czasie. Zapisz w swoim kalendarzu, kiedy chcesz to zrobić (pamiętaj o zapisaniu linka do strony).</p>

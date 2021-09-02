@@ -29,7 +29,7 @@ const FirstEntry = () => {
 
 
     return <> 
-    {!enable && <Header />}
+    {/* {!enable && <Header />} */}
       <form>
       {!enable && <div>
         <h2>Jak masz na imię?</h2>
