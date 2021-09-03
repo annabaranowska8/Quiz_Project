@@ -6,21 +6,7 @@ import "./scss/main.scss";
 
 function App() {
 
-  // const [personName, setPersonName] = useState("");
-  // const [groupName, setGroupName] = useState("");
-  // // const [dziwnyState, setDziwnyState] = useState("");
-
-
-  // useEffect(() => {
-
-  //   setPersonName(localStorage.getItem("nameInLocalStorage"));
-  //   setGroupName(localStorage.getItem("groupInLocalStorage"));
-
-
-  // },[])
-
-
-  return (
+return (
     <>
       <Header/>
       <QuizWelcome />

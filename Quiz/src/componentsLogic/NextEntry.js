@@ -26,7 +26,7 @@ const NextEntry = () => {
         setGroup(enteredGroup);
       }
     
-    {if (!localStorage.getItem("clickCounterInLocalStorage")) {
+    {if (localStorage.getItem("clickCounterInLocalStorage")) {
     return <>
     <form>
       <div className="quiz">
