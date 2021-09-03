@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import FirstEntry from "./FirstEntry";
 import NextEntry from "./NextEntry";
 import "../scss/main.scss";
 
-function QuizWelcome({}) {
-  // const [updatetowanyState, setUpdatetowanyState] = useState("");
-
-  
-  // useEffect(() => {
-  //   setDziwnyState(updatetowanyState)
-  // }, [updatetowanyState])
-
-
+function QuizWelcome() {
       {if (!localStorage.getItem("nameInLocalStorage", "groupInLocalStorage")) { 
       return <>
       <FirstEntry/>
@@ -25,6 +17,3 @@ function QuizWelcome({}) {
 }
 
 export default QuizWelcome;
-
-
-//twój poprzedni test był taki ... chcesz zacząć jeszcze raz? Twoje poprzednie wyniki zostaną skasowane.

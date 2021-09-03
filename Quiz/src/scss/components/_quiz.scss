@@ -34,7 +34,6 @@
                 font-family: "Nunito", sans-serif;
                 font-size: 20px;
                 text-align: center;
-                // margin-bottom: 30px;
             }
 
             .btn {
@@ -92,8 +91,6 @@
                         transition: 0.3s;
                     }
                 }
-
-                
             }
         }
     }
@@ -128,15 +125,6 @@
     p {
         padding: 15px;
     }
-
-    // &:before {
-    //         content: "";
-    //         height: 60px;
-    //         width: 60px;
-    //         border-radius: 50%;
-    //         background-color: $color-light-blue;
-    //         position: absolute;
-    //     }
 }
 .btn {
     border: none;
@@ -181,5 +169,4 @@
         margin-top: 20px;
         margin: 15px;
     }
-
 }

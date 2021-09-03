@@ -25,10 +25,6 @@ const NextEntry = () => {
         setName(enteredName);
         setGroup(enteredGroup);
       }
-    const scoreZero = () => {
-      if (score == (""))
-      return 0 
-    }
     
     {if (!localStorage.getItem("clickCounterInLocalStorage")) {
     return <>

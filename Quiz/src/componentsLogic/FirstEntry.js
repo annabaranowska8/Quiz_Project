@@ -4,7 +4,7 @@ import GroupLocalStorage from "./GroupLocalStorage";
 import Quiz from "./Quiz";
 
 
-const FirstEntry = ({setUpdatetowanyState}) => {
+const FirstEntry = () => {
     const [enable, setEnable] = useState(false);
     const [name, setName] = NameLocalStorage("nameInLocalStorage");
     const [group, setGroup] = GroupLocalStorage("groupInLocalStorage");
@@ -26,9 +26,7 @@ const FirstEntry = ({setUpdatetowanyState}) => {
         setName(enteredName);
         setGroup(enteredGroup);
       }
-
-
-
+      
     return <> 
       <form onSubmit={handleSubmit}>
         <div className="quiz">

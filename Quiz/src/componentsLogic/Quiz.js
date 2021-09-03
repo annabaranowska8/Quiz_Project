@@ -8,8 +8,6 @@ function Quiz({name, group}) {
   const [clickCounter, setClickCounter] = useState(0);
   const [enable, setEnable] = useState(false);
 
-  console.log(clickCounter);
-
   useEffect(() => {
     fetch("./database/questions.json")
       .then((resp) => resp.json())
@@ -28,7 +26,6 @@ function Quiz({name, group}) {
 const onClickHandlerNo = (e) => {
     e.preventDefault();
     setQuestionNumber((currentNumber) => currentNumber + 1);
-    // setClickCounter((currentClick) => currentClick + 1);
     questionNumber === 9 && setEnable(true);
 }
 const displayQuestion = (questionNumber) => {

@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from "react";
-// import NameLocalStorage from "../componentsLogic/NameLocalStorage";
-// import GroupLocalStorage from "../componentsLogic/GroupLocalStorage";
 
 const Header = ({personName, groupName}) => {
 
