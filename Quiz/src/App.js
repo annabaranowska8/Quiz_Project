@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from "react";
-import Header from "./componentsStyle/Header";
-import QuizWelcome from "./componentsLogic/QuizWelcome";
-import Footer from "./componentsStyle/Footer";
+import React from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Quizz from "./components/Quizz/Quizz";
+
 import "./scss/main.scss";
 
 function App() {
-
-return (
+  return (
     <>
-      <Header/>
-      <QuizWelcome />
+      <Header />
+      <Quizz />
       <Footer />
     </>
   );
