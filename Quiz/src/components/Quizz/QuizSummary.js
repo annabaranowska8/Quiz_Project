@@ -16,9 +16,11 @@ function QuizSummary({ counter }) {
     }
   };
 
-  const handleNewStart = () => {
-    window.location.reload(false);
-  };
+  const handleNewStart = (e) => {
+    e.preventDefault();
+    document.location.reload(false);
+    localStorage.clear();
+    };
 
   console.log(typeof counter);
 
@@ -66,7 +68,7 @@ function QuizSummary({ counter }) {
             <div className="container">
               <div className="quiz__box">
                 <div className="quiz__content">
-                  <div className="quiz__summary quiz__content">
+                  <div className="quiz__summary">
                     <h2>Twoja grupa wygląda na bezpieczną. Gratulacje!</h2>
                     <p>
                       Jeśli chcesz powtórzyć quiz dla innej grupy kliknij tutaj:

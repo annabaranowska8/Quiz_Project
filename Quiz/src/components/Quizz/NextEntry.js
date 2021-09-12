@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import NameLocalStorage from "./NameLocalStorage";
-import GroupLocalStorage from "./GroupLocalStorage";
 
 const NextEntry = () => {
     const [enable, setEnable] = useState(false);
@@ -18,7 +16,7 @@ const NextEntry = () => {
         setStartNewQuizNow(true)
         localStorage.setItem("name", "");
         localStorage.setItem("group", "");
-        localStorage.setItem("clickCounterInLocalStorage", "");
+        // localStorage.setItem("clickCounterInLocalStorage", "");
       };
     const handleSubmit = () => {
         setEnable(true);
@@ -26,7 +24,7 @@ const NextEntry = () => {
         setGroup(enteredGroup);
       }
     
-    {if (localStorage.getItem("clickCounterInLocalStorage")) {
+    {if (!localStorage.getItem("clickCounterInLocalStorage") || localStorage.getItem("clickCounterInLocalStorage") === "undefined") {
     return <>
     <form>
       <div className="quiz">
@@ -44,8 +42,8 @@ const NextEntry = () => {
         </div>
       </form> 
     </>
-  } else { 
-    return <>
+  }
+  return <>
     <form>
       <div className="quiz">
           <div className="container">
@@ -63,7 +61,6 @@ const NextEntry = () => {
       </form> 
     </>
   }
-}
 }
 
 export default NextEntry;
